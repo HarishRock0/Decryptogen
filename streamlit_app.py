@@ -24,10 +24,10 @@ st.markdown(
 
         .stApp {
             background:
-                radial-gradient(circle at 10% 10%, rgba(14, 165, 233, 0.18), transparent 22%),
-                radial-gradient(circle at 90% 8%, rgba(249, 115, 22, 0.18), transparent 18%),
-                radial-gradient(circle at 84% 82%, rgba(34, 197, 94, 0.14), transparent 20%),
-                linear-gradient(180deg, #f8fafc 0%, #eef2ff 52%, #e2e8f0 100%);
+                radial-gradient(circle at 10% 10%, rgba(14, 165, 233, 0.12), transparent 22%),
+                radial-gradient(circle at 90% 8%, rgba(249, 115, 22, 0.12), transparent 18%),
+                radial-gradient(circle at 84% 82%, rgba(34, 197, 94, 0.1), transparent 20%),
+                linear-gradient(180deg, #0f172a 0%, #111827 52%, #1a202c 100%);
         }
 
         .stApp::before {
@@ -35,10 +35,10 @@ st.markdown(
             position: fixed;
             inset: 0;
             pointer-events: none;
-            background-image: linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
             background-size: 42px 42px;
             mask-image: radial-gradient(circle at center, black 46%, transparent 100%);
-            opacity: 0.7;
+            opacity: 0.5;
         }
 
         .block-container {
@@ -71,8 +71,8 @@ st.markdown(
             align-items: center;
             padding: 0.45rem 0.8rem;
             border-radius: 999px;
-            background: rgba(15, 23, 42, 0.08);
-            color: #0f172a;
+            background: rgba(56, 189, 248, 0.15);
+            color: #7dd3fc;
             font-size: 0.8rem;
             font-weight: 700;
             letter-spacing: 0.04em;
@@ -144,19 +144,19 @@ st.markdown(
             display: inline-block;
             padding: 0.5rem 0.8rem;
             border-radius: 999px;
-            background: rgba(255, 255, 255, 0.11);
-            color: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(148, 163, 184, 0.15);
+            color: rgba(226, 232, 240, 0.95);
+            border: 1px solid rgba(148, 163, 184, 0.2);
             font-size: 0.82rem;
         }
 
         .panel {
-            background: rgba(255, 255, 255, 0.82);
+            background: rgba(30, 41, 59, 0.88);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(148, 163, 184, 0.24);
+            border: 1px solid rgba(148, 163, 184, 0.18);
             border-radius: 26px;
             padding: 1.2rem 1.2rem 1rem 1.2rem;
-            box-shadow: 0 18px 42px rgba(15, 23, 42, 0.09);
+            box-shadow: 0 18px 42px rgba(15, 23, 42, 0.24);
         }
 
         .panel-title {
@@ -172,7 +172,7 @@ st.markdown(
         }
 
         .section-label {
-            color: #475569;
+            color: rgba(148, 163, 184, 0.78);
             font-size: 0.82rem;
             letter-spacing: 0.08em;
             text-transform: uppercase;
@@ -181,15 +181,15 @@ st.markdown(
 
         .subtle-card {
             border-radius: 20px;
-            border: 1px solid rgba(148, 163, 184, 0.25);
-            background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(248,250,252,0.9));
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            background: linear-gradient(180deg, rgba(71, 85, 105, 0.35), rgba(51, 65, 85, 0.3));
             padding: 0.9rem 1rem;
             margin-top: 0.8rem;
         }
 
         .subtle-card p {
             margin: 0;
-            color: #334155;
+            color: rgba(226, 232, 240, 0.88);
         }
 
         .metric-grid {
@@ -347,14 +347,7 @@ st.markdown(
                 </p>
             </div>
             <div class="hero-side">
-                <div class="chip-row">
-                    <span class="chip">Beautiful UI</span>
-                    <span class="chip">FastAPI backend</span>
-                    <span class="chip">Docker ready</span>
-                    <span class="chip">Hugging Face Space</span>
-                </div>
-            </div>
-        </div>
+            
     </div>
     """,
     unsafe_allow_html=True,
@@ -427,28 +420,6 @@ with right:
                         <p class="section-label" style="color: rgba(255,255,255,0.7); margin-bottom: 0.4rem;">Prediction</p>
                         <h2 class="result-title">{personality}</h2>
                         <p class="result-score">Confidence: {confidence}</p>
-
-                        <div class="metric-grid">
-                            <div class="metric-box">
-                                <span class="metric-label">Extrovert</span>
-                                <div class="metric-value">{extrovert_value:.2f}%</div>
-                            </div>
-                            <div class="metric-box alt">
-                                <span class="metric-label">Introvert</span>
-                                <div class="metric-value">{introvert_value:.2f}%</div>
-                            </div>
-                        </div>
-
-                        <div class="prob-row">
-                            <div class="prob-item">
-                                <div class="prob-head"><span>Extrovert likelihood</span><span>{extrovert_value:.2f}%</span></div>
-                                <div class="progress-track"><div class="progress-fill" style="width: {extrovert_value}%"></div></div>
-                            </div>
-                            <div class="prob-item">
-                                <div class="prob-head"><span>Introvert likelihood</span><span>{introvert_value:.2f}%</span></div>
-                                <div class="progress-track"><div class="progress-fill" style="width: {introvert_value}%"></div></div>
-                            </div>
-                        </div>
                     </div>
                     """,
                     unsafe_allow_html=True,
